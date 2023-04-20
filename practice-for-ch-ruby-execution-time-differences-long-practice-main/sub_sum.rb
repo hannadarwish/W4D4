@@ -20,12 +20,13 @@ end
 list = [5, 3, -7]
 
 # p sub_sum_p1(list)
-
+test=[-5,-10,-2,-25]
 def sum_sum_p2(list)
     # return list.sum if list.all? {|ele| ele>0}
     # return list.max if list.all?(&:negative?)
-    largest=list.first
-    current_sum=list.first
+    largest=list.first # 1st loop: -5
+    current_sum=list.first # 1st loop: -5 -> 0 -> -10
+    #[-10,-2,-25]
     list[1..-1].each_with_index do |num,i|
         if current_sum < 0
             current_sum = 0
