@@ -22,15 +22,15 @@ list = [5, 3, -7]
 # p sub_sum_p1(list)
 
 def sum_sum_p2(list)
-    return list.sum if list.all? {|ele| ele>0}
-    largest=0
-    current_sum=0
-    list.each_with_index do |num,i|
-        if current_sum+num < 0
+    # return list.sum if list.all? {|ele| ele>0}
+    # return list.max if list.all?(&:negative?)
+    largest=list.first
+    current_sum=list.first
+    list[1..-1].each_with_index do |num,i|
+        if current_sum < 0
             current_sum = 0
-        else
-            current_sum +=num 
-        end 
+        end
+        current_sum +=num 
         if current_sum>largest 
             largest = current_sum
         end 
@@ -46,3 +46,6 @@ list =      [2, 3,-6, 7, -6, 7]
 # list = [1,2,3,-1,2,4,-5,2]
 p sub_sum_p1(list)
 p sum_sum_p2(list)
+
+test=[-5,-10,-2,-25]
+p sum_sum_p2(test)
